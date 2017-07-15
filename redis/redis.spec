@@ -27,7 +27,7 @@
 %global gh_project   redis
 
 Name:             redis
-Version:          3.2.6
+Version:          4.0.0
 Release:          1%{?dist}
 Summary:          A persistent key-value database
 
@@ -49,8 +49,7 @@ Source8:          %{name}-limit-systemd
 Source9:          %{name}-limit-init
 
 # Update configuration for Fedora
-Patch0:           0001-redis-3.2-redis-conf.patch
-Patch1:           0002-redis-3.2-deps-library-fPIC-performance-tuning.patch
+Patch1:           0002-redis-4.0-deps-library-fPIC-performance-tuning.patch
 Patch2:           0003-redis-3.2.5-use-system-jemalloc.patch
 
 # https://github.com/antirez/redis/pull/3491 - man pages
@@ -116,7 +115,6 @@ Documentation: http://redis.io/documentation
 %setup -q -n %{name}-%{version}
 %endif
 
-%patch0 -p1 -b .rpmconf
 %patch1 -p1 -b .pic
 %patch2 -p0 -b .jem
 
